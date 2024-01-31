@@ -1,4 +1,3 @@
-//hello
 package frc.robot.subsystems.drive;
 
 public class ShooterIOSparkMax implements ShooterIO{
@@ -26,7 +25,7 @@ public class ShooterIOSparkMax implements ShooterIO{
 
      /** Updates the set of loggable inputs. */
     @Override
-    public void updateInputs(ElevatorIOInputs inputs) {
+    public void updateInputs(ShooterIOInputs inputs) {
         inputs.positionMeters = encoder.getPosition();
         inputs.velocityMeters = encoder.getVelocity();
         inputs.appliedVolts = shooterMotor.getAppliedOutput() * shooterMotor.getBusVoltage();
