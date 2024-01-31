@@ -19,29 +19,34 @@ import frc.robot.RobotContainer;
 
 public class Shooter extends SubsystemBase {
 
-    prive shooterMotor shooter;
+    private shooterMotor shooter;
+    private leftSpeed lSpeed;
+    private rightSpeed rSpeed;
     private SubsystemBase subsystem;
 
-    addRequirements(shooter);
+    public ShooterSpeedCommand(shooterMotor shooter, leftSpeed lSpeed, rightSpeed rSpeed) {
+    this.shooter = shooter;
+    this.rspeed = rSpeed
+    this.lspeed = lSpeed
     
-@Override
-public void initialize() {
-
+    addRequirements(shooter);
+    }
+//make sure that the right speed negatives and positives are correct
+public Command intake() {
+    return new FunctionalCommand(
+    () -> io.setrSpeed(-12.0),
+    () -> io.setlSpeed(12.0),
+    (interrupted) -> io.setSpeed(speed:0.0),
+    this;
+    );
 }
 
-@Override
-public void execute() {
-    commdn.execute();
+public Command release() {
+    return new FunctionalCommand(
+    () -> io.setrSpeed(100.0),
+    () -> io.setlSpeed(-100.0),
+    (interrupted) -> io.setSpeed(speed:0.0),
+    this;
+    );
 }
-
-@Override
-public void end(boolean interrupted) {
-    command.end(interrupted);
-}
-
-@Override 
-public bollean isFinished() {
-    return command.isFinished();
-}
-
 }
