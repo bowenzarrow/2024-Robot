@@ -14,4 +14,6 @@ public interface ShooterIO {
     public default void updateInputs() {}
     public default void setVoltage(double voltage) {}
     public default float getDistance(){return 0.0;}
+
+    // hi
 }
